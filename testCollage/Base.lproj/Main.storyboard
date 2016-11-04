@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="qRI-KO-dy5">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="uNA-u6-2qL">
+            <objects>
+                <navigationController id="qRI-KO-dy5" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="d07-k4-c9C">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="TXZ-wI-YhE" kind="relationship" relationship="rootViewController" id="70p-OE-6D2"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="90B-u2-Dnc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="55" y="348"/>
+        </scene>
+        <!--Start View Controller-->
+        <scene sceneID="igZ-Ze-7DW">
+            <objects>
+                <viewController id="ma6-3y-qwx" customClass="StartViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="fri-Pj-7Lv"/>
+                        <viewControllerLayoutGuide type="bottom" id="dcY-BA-pb9"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="5a9-5q-sc5">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3oN-Sw-TEv">
+                                <frame key="frameInset" minX="137" minY="162" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="3oN-Sw-TEv"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="3oN-Sw-TEv"/>
+                            </mask>
+                        </variation>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AQv-tf-ExO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="351" y="999"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="sFN-Va-L5t">
+            <objects>
+                <viewController id="WAH-Fq-W7Q" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ul6-3f-KLr"/>
+                        <viewControllerLayoutGuide type="bottom" id="I9T-pR-JqE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="xTm-cr-5mK">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="m3h-Vg-cEo">
+                                <frame key="frameInset" minX="40" minY="45" width="240" height="150"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5hd-3g-ZkC">
+                                        <frame key="frameInset" minX="51" minY="15" width="139" height="120"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </scrollView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <variation key="default">
+                                    <mask key="subviews">
+                                        <exclude reference="5hd-3g-ZkC"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="subviews">
+                                        <include reference="5hd-3g-ZkC"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fdM-za-La3">
+                                <frame key="frameInset" minX="40" minY="317" width="240" height="150"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mDR-u7-wwJ">
+                                        <frame key="frameInset" minX="51" minY="15" width="139" height="120"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </scrollView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <variation key="default">
+                                    <mask key="subviews">
+                                        <exclude reference="mDR-u7-wwJ"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="subviews">
+                                        <include reference="mDR-u7-wwJ"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="m3h-Vg-cEo"/>
+                                <exclude reference="fdM-za-La3"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="m3h-Vg-cEo"/>
+                                <include reference="fdM-za-La3"/>
+                            </mask>
+                        </variation>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="X80-GK-1nd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1042.5" y="999"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Uhf-Sj-4HR">
+            <objects>
+                <viewController id="TXZ-wI-YhE" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="kT1-fh-OEk"/>
+                        <viewControllerLayoutGuide type="bottom" id="OyZ-cP-GBf"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="PzU-KH-92c">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="saq-Bq-CpR">
+                                <frame key="frameInset" minX="225" minY="479" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="share"/>
+                                <connections>
+                                    <action selector="shareButton:" destination="TXZ-wI-YhE" eventType="touchUpInside" id="pTT-bL-amf"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0kJ-Xy-VQm">
+                                <frame key="frameInset" minX="26" minY="537" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="showGallery:" destination="TXZ-wI-YhE" eventType="touchUpInside" id="C42-1s-r0a"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BzG-y5-oB4">
+                                <subviews>
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" bounces="NO" maximumZoomScale="4" translatesAutoresizingMaskIntoConstraints="NO" id="eni-Tz-ebZ">
+                                        <frame key="frameInset" minX="24" minY="8" width="287" height="324"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gwv-rd-CJk">
+                                                <rect key="frame" x="33" y="276" width="220" height="40"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="Tap to add a Caption">
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="fillCaption:" destination="TXZ-wI-YhE" eventType="touchUpInside" id="HAT-bH-Vlr"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="tintColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="TXZ-wI-YhE" id="sLn-il-h1c"/>
+                                        </connections>
+                                    </scrollView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="eni-Tz-ebZ" firstAttribute="leading" secondItem="BzG-y5-oB4" secondAttribute="leading" constant="24" id="86A-i3-AiC"/>
+                                    <constraint firstAttribute="trailing" secondItem="eni-Tz-ebZ" secondAttribute="trailing" constant="24" id="Ye0-yR-hIG"/>
+                                    <constraint firstAttribute="bottom" secondItem="eni-Tz-ebZ" secondAttribute="bottom" constant="41" id="gtB-le-Qup">
+                                        <variation key="widthClass=compact" constant="53"/>
+                                    </constraint>
+                                    <constraint firstItem="eni-Tz-ebZ" firstAttribute="top" secondItem="BzG-y5-oB4" secondAttribute="top" constant="8" id="mHJ-DV-0qg"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="86A-i3-AiC"/>
+                                        <exclude reference="Ye0-yR-hIG"/>
+                                        <exclude reference="gtB-le-Qup"/>
+                                        <exclude reference="mHJ-DV-0qg"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="86A-i3-AiC"/>
+                                        <include reference="Ye0-yR-hIG"/>
+                                        <include reference="gtB-le-Qup"/>
+                                        <include reference="mHJ-DV-0qg"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Cww-3j-MhG" customClass="CustomSlider">
+                                <frame key="frameInset" minX="54" minY="576" width="279" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="maximumTrackTintColor" red="0.93567708333333333" green="0.93567708333333333" blue="0.93567708333333333" alpha="1" colorSpace="calibratedRGB"/>
+                            </slider>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="BzG-y5-oB4" secondAttribute="trailing" constant="20" id="IpR-0Y-LOf"/>
+                            <constraint firstItem="BzG-y5-oB4" firstAttribute="top" secondItem="kT1-fh-OEk" secondAttribute="bottom" constant="24" id="ToH-US-xqD"/>
+                            <constraint firstItem="OyZ-cP-GBf" firstAttribute="top" secondItem="BzG-y5-oB4" secondAttribute="bottom" constant="206" id="qGG-0s-adY">
+                                <variation key="widthClass=compact" constant="194"/>
+                            </constraint>
+                            <constraint firstItem="BzG-y5-oB4" firstAttribute="leading" secondItem="PzU-KH-92c" secondAttribute="leading" constant="20" id="tWR-kP-Xxp"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="saq-Bq-CpR"/>
+                                <exclude reference="0kJ-Xy-VQm"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="IpR-0Y-LOf"/>
+                                <exclude reference="ToH-US-xqD"/>
+                                <exclude reference="tWR-kP-Xxp"/>
+                                <exclude reference="qGG-0s-adY"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="saq-Bq-CpR"/>
+                                <include reference="0kJ-Xy-VQm"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="IpR-0Y-LOf"/>
+                                <include reference="ToH-US-xqD"/>
+                                <include reference="tWR-kP-Xxp"/>
+                                <include reference="qGG-0s-adY"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" id="Rxn-bg-EyF"/>
+                    <connections>
+                        <outlet property="addCaptionButton" destination="gwv-rd-CJk" id="Ogh-77-8ve"/>
+                        <outlet property="backgroundView" destination="BzG-y5-oB4" id="duF-Mv-uil"/>
+                        <outlet property="scrollView" destination="eni-Tz-ebZ" id="Pfn-zo-tc0"/>
+                        <outlet property="slider" destination="Cww-3j-MhG" id="idp-s9-fs8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dbu-be-rUn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1250.4000000000001" y="347.67616191904051"/>
+        </scene>
+    </scenes>
+</document>

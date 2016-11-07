@@ -15,13 +15,15 @@
 #include <ImageIO/ImageIO.h>
 #import <Photos/PHAsset.h>
 #import <Photos/Photos.h>
+#import <FTPKit/FTPKit.h>
+#import "SCRFTPRequest.h"
 
 
 static NSString * const kMIRatingTitle                  = @"Great job! \n \u2B50\u2B50\u2B50\u2B50\u2B50";//@"Do you enjoy using our application?";
 static NSString * const kMIRatingMessage                = @"We think you're awesome!\n Would you mind taking a moment to leave your rating on iTunes ?";//@"Please take a minute to give us ratings/reviews so we can keep improving our application";
 
 
-@interface ViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIScrollViewDelegate>
+@interface ViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIScrollViewDelegate, SCRFTPRequestDelegate>
 @property (nonatomic, retain)   UIImagePickerController         *imagePickerController;
 @property (weak, nonatomic) IBOutlet UIView *backgroundView;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
@@ -32,7 +34,7 @@ static NSString * const kMIRatingMessage                = @"We think you're awes
 @property (weak, nonatomic) IBOutlet UIButton *addCaptionButton;
 @property (nonatomic, strong) CAShapeLayer *border;
 @property (nonatomic,strong) UILabel *sliderValueLabel;
-
+@property (nonatomic, strong) SCRFTPRequest *ftpRequest;
 
 @end
 
@@ -51,7 +53,7 @@ static NSString * const kMIRatingMessage                = @"We think you're awes
     [self.slider setMinimumValue:1];
     [self.slider setMaximumValue:10];
     
-
+    self.ftpRequest.delegate = self;
     
 //    UIImage *image = [UIImage imageNamed:@"preplay_start.png"];
 //    UIImage *image = [UIImage imageNamed:@"1111"];
@@ -365,15 +367,30 @@ static NSString * const kMIRatingMessage                = @"We think you're awes
     CGImageSourceRef source;
     source = CGImageSourceCreateWithData((CFDataRef)dataOfImageFromGallery, NULL);
     
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
+                                                         NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString* path = [documentsDirectory stringByAppendingPathComponent:
+                      @"test.png" ];
+    NSData* data = UIImagePNGRepresentation(image);
+    [data writeToFile:path atomically:YES];
+    
     NSDictionary *metadata = (NSDictionary *) CFBridgingRelease(CGImageSourceCopyPropertiesAtIndex(source, 0, NULL));
     
     NSMutableDictionary *metadataAsMutable = [metadata mutableCopy];
-//    [metadata release];
     
     NSMutableDictionary *EXIFDictionary = [[metadataAsMutable objectForKey:(NSString *)kCGImagePropertyExifDictionary]mutableCopy];
     NSMutableDictionary *IPTCDictionary = [[metadataAsMutable objectForKey:(NSString *)kCGImagePropertyIPTCDictionary]mutableCopy];
     
+    NSURL *ftpURL = [NSURL URLWithString:@"ftp://k.seryoga@ftp.drivehq.com"];
+    self.ftpRequest = [[SCRFTPRequest alloc] initWithURL:ftpURL toUploadFile:path];
+    self.ftpRequest.delegate = self;
 
+   self.ftpRequest.username = @"k.seryoga";
+   self.ftpRequest.password = @"seRg4702";
+    
+    [self.ftpRequest startRequest];
     
     self.scrollView.contentMode = UIViewContentModeScaleAspectFill;
     self.scrollView.contentOffset = CGPointZero;
@@ -398,6 +415,50 @@ static NSString * const kMIRatingMessage                = @"We think you're awes
         [self.navigationController.navigationBar setHidden:NO];
     }];
 }
+
+// Required delegate methods
+- (void)ftpRequestDidFinish:(SCRFTPRequest *)request {
+    
+    NSLog(@"Upload finished.");
+}
+
+- (void)ftpRequest:(SCRFTPRequest *)request didFailWithError:(NSError *)error {
+    
+    NSLog(@"Upload failed: %@", [error localizedDescription]);
+}
+
+// Optional delegate methods
+- (void)ftpRequestWillStart:(SCRFTPRequest *)request {
+    
+    NSLog(@"Will transfer %d bytes.", request.fileSize);
+}
+
+- (void)ftpRequest:(SCRFTPRequest *)request didWriteBytes:(NSUInteger)bytesWritten {
+    
+    NSLog(@"Transferred: %d", bytesWritten);
+}
+
+- (void)ftpRequest:(SCRFTPRequest *)request didChangeStatus:(SCRFTPRequestStatus)status {
+    
+    switch (status) {
+        case SCRFTPRequestStatusOpenNetworkConnection:
+            NSLog(@"Opened connection.");
+            break;
+        case SCRFTPRequestStatusReadingFromStream:
+            NSLog(@"Reading from stream...");
+            break;
+        case SCRFTPRequestStatusWritingToStream:
+            NSLog(@"Writing to stream...");
+            break;
+        case SCRFTPRequestStatusClosedNetworkConnection:
+            NSLog(@"Closed connection.");
+            break;
+        case SCRFTPRequestStatusError:
+            NSLog(@"Error occurred."); 
+            break; 
+    } 
+}
+
 
 
 - (void) logMetaDataFromImage:(UIImage*)image {

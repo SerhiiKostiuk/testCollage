@@ -7,9 +7,11 @@
 //
 
 #import "AppDelegate.h"
+#import "RootCoordinator.h"
+
 
 @interface AppDelegate ()
-
+@property (nonatomic, strong) RootCoordinator *rootCoordinator;
 @end
 
 @implementation AppDelegate
@@ -23,6 +25,17 @@
     attr[UITextAttributeTextShadowOffset] = [NSValue valueWithUIOffset:UIOffsetMake(0, -1)];
     attr[UITextAttributeFont] = [UIFont systemFontOfSize:18.0];
     [[UINavigationBar appearance] setTitleTextAttributes:attr];
+    
+    
+    UIWindow *window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    self.window = window;
+    
+    RootCoordinator *coordinator = [RootCoordinator new];
+    self.rootCoordinator = coordinator;
+    
+//    window.rootViewController = coordinator.rootViewController;
+    
+    [self.window makeKeyAndVisible];
     
     // Override point for customization after application launch.
     return YES;

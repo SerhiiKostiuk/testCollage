@@ -13,6 +13,11 @@
 		CD33A41B1D799C4E000E25D2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD33A4191D799C4E000E25D2 /* Main.storyboard */; };
 		CD33A41D1D799C4E000E25D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD33A41C1D799C4E000E25D2 /* Assets.xcassets */; };
 		CD33A4201D799C4E000E25D2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD33A41E1D799C4E000E25D2 /* LaunchScreen.storyboard */; };
+		CD44C38E1DD0AB2400984FE7 /* libFTPKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CD44C3891DD0AAF000984FE7 /* libFTPKit.a */; };
+		CD44C3911DD0AB2A00984FE7 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD44C3901DD0AB2A00984FE7 /* CFNetwork.framework */; };
+		CD44C3931DD0AB2F00984FE7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD44C3921DD0AB2F00984FE7 /* Foundation.framework */; };
+		CD44C3961DD0B63D00984FE7 /* SCRFTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = CD44C3951DD0B63D00984FE7 /* SCRFTPRequest.m */; };
+		CD44C39C1DD0C92300984FE7 /* RootCoordinator.m in Sources */ = {isa = PBXBuildFile; fileRef = CD44C39B1DD0C92300984FE7 /* RootCoordinator.m */; };
 		CD4713DE1D7DC04E00EA4C79 /* MGInstagram.m in Sources */ = {isa = PBXBuildFile; fileRef = CD4713DD1D7DC04E00EA4C79 /* MGInstagram.m */; };
 		CD50C1311D82ACB500A86CAB /* FillCaptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD50C12F1D82ACB500A86CAB /* FillCaptionViewController.m */; };
 		CD50C1321D82ACB500A86CAB /* FillCaptionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD50C1301D82ACB500A86CAB /* FillCaptionViewController.xib */; };
@@ -25,6 +30,30 @@
 		CD9D1F3F1D994B2A005BC0F6 /* UIImage+GradientImageExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = CD9D1F3E1D994B2A005BC0F6 /* UIImage+GradientImageExtensions.m */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		CD44C3881DD0AAF000984FE7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CD44C3831DD0AAF000984FE7 /* FTPKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F27BA1CE1802FE7E00584A9E;
+			remoteInfo = FTPKit;
+		};
+		CD44C38A1DD0AAF000984FE7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CD44C3831DD0AAF000984FE7 /* FTPKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 07F23C4818CA4C43002BDF93;
+			remoteInfo = "FTPKit Tests";
+		};
+		CD44C38C1DD0AB1000984FE7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CD44C3831DD0AAF000984FE7 /* FTPKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = F27BA1CD1802FE7E00584A9E;
+			remoteInfo = FTPKit;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		CD33A40D1D799C4E000E25D2 /* testCollage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = testCollage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD33A4111D799C4E000E25D2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -36,6 +65,13 @@
 		CD33A41C1D799C4E000E25D2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CD33A41F1D799C4E000E25D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CD33A4211D799C4E000E25D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CD44C3831DD0AAF000984FE7 /* FTPKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = FTPKit.xcodeproj; path = "../../../Downloads/FTPKit-master/FTPKit.xcodeproj"; sourceTree = "<group>"; };
+		CD44C3901DD0AB2A00984FE7 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		CD44C3921DD0AB2F00984FE7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		CD44C3941DD0B63D00984FE7 /* SCRFTPRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SCRFTPRequest.h; path = "../../../../Downloads/SCRFTPRequest-master/SCRFTPRequest.h"; sourceTree = "<group>"; };
+		CD44C3951DD0B63D00984FE7 /* SCRFTPRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SCRFTPRequest.m; path = "../../../../Downloads/SCRFTPRequest-master/SCRFTPRequest.m"; sourceTree = "<group>"; };
+		CD44C39A1DD0C92300984FE7 /* RootCoordinator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootCoordinator.h; sourceTree = "<group>"; };
+		CD44C39B1DD0C92300984FE7 /* RootCoordinator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootCoordinator.m; sourceTree = "<group>"; };
 		CD4713DC1D7DC04E00EA4C79 /* MGInstagram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGInstagram.h; sourceTree = "<group>"; };
 		CD4713DD1D7DC04E00EA4C79 /* MGInstagram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGInstagram.m; sourceTree = "<group>"; };
 		CD50C12E1D82ACB500A86CAB /* FillCaptionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FillCaptionViewController.h; sourceTree = "<group>"; };
@@ -61,6 +97,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD44C3931DD0AB2F00984FE7 /* Foundation.framework in Frameworks */,
+				CD44C3911DD0AB2A00984FE7 /* CFNetwork.framework in Frameworks */,
+				CD44C38E1DD0AB2400984FE7 /* libFTPKit.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,8 +109,11 @@
 		CD33A4041D799C4E000E25D2 = {
 			isa = PBXGroup;
 			children = (
+				CD44C3971DD0C8D100984FE7 /* Source */,
+				CD44C3831DD0AAF000984FE7 /* FTPKit.xcodeproj */,
 				CD33A40F1D799C4E000E25D2 /* testCollage */,
 				CD33A40E1D799C4E000E25D2 /* Products */,
+				CD44C38F1DD0AB2A00984FE7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -113,6 +155,8 @@
 				CD9D1F351D993986005BC0F6 /* CustomSlider.m */,
 				CD9D1F3D1D994B2A005BC0F6 /* UIImage+GradientImageExtensions.h */,
 				CD9D1F3E1D994B2A005BC0F6 /* UIImage+GradientImageExtensions.m */,
+				CD44C3941DD0B63D00984FE7 /* SCRFTPRequest.h */,
+				CD44C3951DD0B63D00984FE7 /* SCRFTPRequest.m */,
 			);
 			path = testCollage;
 			sourceTree = "<group>";
@@ -123,6 +167,49 @@
 				CD33A4111D799C4E000E25D2 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CD44C3841DD0AAF000984FE7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CD44C3891DD0AAF000984FE7 /* libFTPKit.a */,
+				CD44C38B1DD0AAF000984FE7 /* FTPKit Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CD44C38F1DD0AB2A00984FE7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CD44C3921DD0AB2F00984FE7 /* Foundation.framework */,
+				CD44C3901DD0AB2A00984FE7 /* CFNetwork.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CD44C3971DD0C8D100984FE7 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				CD44C3981DD0C8D100984FE7 /* Coordinators */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		CD44C3981DD0C8D100984FE7 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				CD44C3991DD0C8F400984FE7 /* RootCoordinator */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		CD44C3991DD0C8F400984FE7 /* RootCoordinator */ = {
+			isa = PBXGroup;
+			children = (
+				CD44C39A1DD0C92300984FE7 /* RootCoordinator.h */,
+				CD44C39B1DD0C92300984FE7 /* RootCoordinator.m */,
+			);
+			path = RootCoordinator;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,6 +226,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				CD44C38D1DD0AB1000984FE7 /* PBXTargetDependency */,
 			);
 			name = testCollage;
 			productName = testCollage;
@@ -171,12 +259,35 @@
 			mainGroup = CD33A4041D799C4E000E25D2;
 			productRefGroup = CD33A40E1D799C4E000E25D2 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = CD44C3841DD0AAF000984FE7 /* Products */;
+					ProjectRef = CD44C3831DD0AAF000984FE7 /* FTPKit.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				CD33A40C1D799C4E000E25D2 /* testCollage */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		CD44C3891DD0AAF000984FE7 /* libFTPKit.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libFTPKit.a;
+			remoteRef = CD44C3881DD0AAF000984FE7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		CD44C38B1DD0AAF000984FE7 /* FTPKit Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "FTPKit Tests.xctest";
+			remoteRef = CD44C38A1DD0AAF000984FE7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		CD33A40B1D799C4E000E25D2 /* Resources */ = {
@@ -207,12 +318,22 @@
 				CD9D1F361D993986005BC0F6 /* CustomSlider.m in Sources */,
 				CD50C1361D82E2A600A86CAB /* StartViewController.m in Sources */,
 				CD4713DE1D7DC04E00EA4C79 /* MGInstagram.m in Sources */,
+				CD44C3961DD0B63D00984FE7 /* SCRFTPRequest.m in Sources */,
 				CD9D1F3F1D994B2A005BC0F6 /* UIImage+GradientImageExtensions.m in Sources */,
+				CD44C39C1DD0C92300984FE7 /* RootCoordinator.m in Sources */,
 				CD33A4121D799C4E000E25D2 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CD44C38D1DD0AB1000984FE7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = FTPKit;
+			targetProxy = CD44C38C1DD0AB1000984FE7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		CD33A4191D799C4E000E25D2 /* Main.storyboard */ = {

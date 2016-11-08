@@ -17,6 +17,7 @@
 #import <Photos/Photos.h>
 #import <FTPKit/FTPKit.h>
 #import "SCRFTPRequest.h"
+#include <MobileCoreServices/UTCoreTypes.h>
 
 
 static NSString * const kMIRatingTitle                  = @"Great job! \n \u2B50\u2B50\u2B50\u2B50\u2B50";//@"Do you enjoy using our application?";
@@ -35,7 +36,7 @@ static NSString * const kMIRatingMessage                = @"We think you're awes
 @property (nonatomic, strong) CAShapeLayer *border;
 @property (nonatomic,strong) UILabel *sliderValueLabel;
 @property (nonatomic, strong) SCRFTPRequest *ftpRequest;
-
+@property (nonatomic, strong) NSString *fileName;
 @end
 
 @implementation ViewController
@@ -359,29 +360,198 @@ static NSString * const kMIRatingMessage                = @"We think you're awes
     UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
     self.image = image;
     self.imageView = [[UIImageView alloc] initWithImage:image];
+    
+//    ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
 
+//NSData *jpeg = [NSData dataWithContentsOfFile:@"foo.jpg"]
+    
+//    NSString *iptcKey = (NSString *)kCGImagePropertyIPTCDictionary;
+//    NSMutableDictionary *iptcMetadata = metadata[iptcKey];
+//    iptcMetadata[(NSString *)kCGImagePropertyIPTCObjectName] = @"Image Title";
+//    iptcMetadata[(NSString *)kCGImagePropertyIPTCKeywords] = @"some keywords";
+//    metadata[iptcKey] = iptcMetadata;
+    
+      NSURL *referenceURL = [info objectForKey:UIImagePickerControllerReferenceURL];// fetch url of selected image
+    //get image name
+    PHFetchOptions *fetchOptions = [PHFetchOptions new];
+    fetchOptions.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"creationDate" ascending:NO]];
+    PHFetchResult *fetchResult = [PHAsset fetchAssetsWithMediaType:PHAssetMediaTypeImage options:fetchOptions];
+//    PHAsset *lastImageAsset = [fetchResult firstObject];
+    PHAsset *asset = [PHAsset fetchAssetsWithALAssetURLs:@[referenceURL] options:nil].firstObject;
+    
+//    NSArray *resources = [PHAssetResource assetResourcesForAsset:lastImageAsset];
+//    NSString *orgFilename = ((PHAssetResource*)resources[0]).originalFilename;
+    //
+//   __block NSString *fileName = nil;
+    if (asset) {
+        // get photo info from this asset
+        PHImageRequestOptions * imageRequestOptions = [[PHImageRequestOptions alloc] init];
+        imageRequestOptions.synchronous = YES;
+        [[PHImageManager defaultManager]
+         requestImageDataForAsset:asset
+         options:imageRequestOptions
+         resultHandler:^(NSData *imageData, NSString *dataUTI,
+                         UIImageOrientation orientation,
+                         NSDictionary *info)
+         {
+             NSLog(@"info = %@", info);
+             if ([info objectForKey:@"PHImageFileURLKey"]) {
+                 // path looks like this -
+                 // file:///var/mobile/Media/DCIM/###APPLE/IMG_####.JPG
+                 NSURL *path = [info objectForKey:@"PHImageFileURLKey"];
+                 NSString *JPEGfilename = [[path absoluteString] lastPathComponent];
+
+                 
+                 self.fileName = JPEGfilename;
+             }
+         }];
+    }
+    
     NSData *dataOfImageFromGallery = UIImageJPEGRepresentation (image,1.0);
     NSLog(@"Image length:  %lu", (unsigned long)[dataOfImageFromGallery length]);
     
-    
-    CGImageSourceRef source;
-    source = CGImageSourceCreateWithData((CFDataRef)dataOfImageFromGallery, NULL);
-    
-    
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
-                                                         NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths objectAtIndex:0];
-    NSString* path = [documentsDirectory stringByAppendingPathComponent:
-                      @"test.png" ];
-    NSData* data = UIImagePNGRepresentation(image);
-    [data writeToFile:path atomically:YES];
+    CGImageSourceRef source = CGImageSourceCreateWithData((CFDataRef)dataOfImageFromGallery, NULL);
     
     NSDictionary *metadata = (NSDictionary *) CFBridgingRelease(CGImageSourceCopyPropertiesAtIndex(source, 0, NULL));
     
     NSMutableDictionary *metadataAsMutable = [metadata mutableCopy];
     
-    NSMutableDictionary *EXIFDictionary = [[metadataAsMutable objectForKey:(NSString *)kCGImagePropertyExifDictionary]mutableCopy];
+
     NSMutableDictionary *IPTCDictionary = [[metadataAsMutable objectForKey:(NSString *)kCGImagePropertyIPTCDictionary]mutableCopy];
+
+    if(!IPTCDictionary){
+        IPTCDictionary = [NSMutableDictionary dictionary];
+    }
+    
+    [IPTCDictionary setValue:@"xml_user_comment" forKey:(NSString *)kCGImagePropertyIPTCWriterEditor];
+    [IPTCDictionary setValue:@"blabla" forKey:(NSString *)kCGImagePropertyIPTCContactInfoCity];
+    [IPTCDictionary setValue:@"kolya" forKey:(NSString *)kCGImagePropertyIPTCHeadline];
+
+    NSDictionary *iptc = @{
+                           (NSString *)kCGImagePropertyIPTCObjectTypeReference : @"kCGImagePropertyIPTCObjectTypeReference",
+                           (NSString *)kCGImagePropertyIPTCObjectAttributeReference : @"kCGImagePropertyIPTCObjectAttributeReference",
+                           (NSString *)kCGImagePropertyIPTCObjectName : @"kCGImagePropertyIPTCObjectName",
+                           (NSString *)kCGImagePropertyIPTCEditStatus : @"kCGImagePropertyIPTCEditStatus",
+                           (NSString *)kCGImagePropertyIPTCEditorialUpdate : @"kCGImagePropertyIPTCEditorialUpdate",
+                           (NSString *)kCGImagePropertyIPTCUrgency : @"kCGImagePropertyIPTCUrgency",
+                           (NSString *)kCGImagePropertyIPTCSubjectReference : @"kCGImagePropertyIPTCSubjectReference",
+                           (NSString *)kCGImagePropertyIPTCCategory : @"kCGImagePropertyIPTCCategory",
+                           (NSString *)kCGImagePropertyIPTCSupplementalCategory : @"kCGImagePropertyIPTCSupplementalCategory",
+                           (NSString *)kCGImagePropertyIPTCFixtureIdentifier : @"kCGImagePropertyIPTCFixtureIdentifier",
+                           (NSString *)kCGImagePropertyIPTCKeywords : @"kCGImagePropertyIPTCKeywords",
+                           (NSString *)kCGImagePropertyIPTCContentLocationCode : @"kCGImagePropertyIPTCContentLocationCode",
+                           (NSString *)kCGImagePropertyIPTCContentLocationName : @"kCGImagePropertyIPTCContentLocationName",
+                           (NSString *)kCGImagePropertyIPTCReleaseDate : @"kCGImagePropertyIPTCReleaseDate",
+                           (NSString *)kCGImagePropertyIPTCReleaseTime : @"kCGImagePropertyIPTCReleaseTime",
+                           (NSString *)kCGImagePropertyIPTCExpirationDate : @"kCGImagePropertyIPTCExpirationDate",
+                           (NSString *)kCGImagePropertyIPTCExpirationTime : @"kCGImagePropertyIPTCExpirationTime",
+                           (NSString *)kCGImagePropertyIPTCSpecialInstructions : @"kCGImagePropertyIPTCSpecialInstructions",
+                           (NSString *)kCGImagePropertyIPTCActionAdvised : @"kCGImagePropertyIPTCActionAdvised",
+                           (NSString *)kCGImagePropertyIPTCReferenceService : @"kCGImagePropertyIPTCReferenceService",
+                           (NSString *)kCGImagePropertyIPTCReferenceDate : @"kCGImagePropertyIPTCReferenceDate",
+                           (NSString *)kCGImagePropertyIPTCReferenceNumber : @"kCGImagePropertyIPTCReferenceNumber",
+                           (NSString *)kCGImagePropertyIPTCDateCreated : @"kCGImagePropertyIPTCDateCreated",
+                           (NSString *)kCGImagePropertyIPTCTimeCreated : @"kCGImagePropertyIPTCTimeCreated",
+                           (NSString *)kCGImagePropertyIPTCDigitalCreationDate : @"kCGImagePropertyIPTCDigitalCreationDate",
+                           (NSString *)kCGImagePropertyIPTCDigitalCreationTime : @"kCGImagePropertyIPTCDigitalCreationTime",
+                           //                           (NSString *)kCGImagePropertyIPTCOriginatingProgram : <CFBundleName>,
+                           //                           (NSString *)kCGImagePropertyIPTCProgramVersion : <CFBundleVersion>,
+                           (NSString *)kCGImagePropertyIPTCObjectCycle : @"kCGImagePropertyIPTCObjectCycle",
+                           (NSString *)kCGImagePropertyIPTCByline : @"kCGImagePropertyIPTCByline",
+                           (NSString *)kCGImagePropertyIPTCBylineTitle : @"kCGImagePropertyIPTCBylineTitle",
+                           (NSString *)kCGImagePropertyIPTCCity : @"kCGImagePropertyIPTCCity",
+                           (NSString *)kCGImagePropertyIPTCSubLocation : @"kCGImagePropertyIPTCSubLocation",
+                           (NSString *)kCGImagePropertyIPTCProvinceState : @"kCGImagePropertyIPTCProvinceState",
+                           (NSString *)kCGImagePropertyIPTCCountryPrimaryLocationCode : @"kCGImagePropertyIPTCCountryPrimaryLocationCode",
+                           (NSString *)kCGImagePropertyIPTCCountryPrimaryLocationName : @"kCGImagePropertyIPTCCountryPrimaryLocationName",
+                           (NSString *)kCGImagePropertyIPTCOriginalTransmissionReference : @"kCGImagePropertyIPTCOriginalTransmissionReference",
+                           (NSString *)kCGImagePropertyIPTCHeadline: @"kCGImagePropertyIPTCHeadline",
+                           (NSString *)kCGImagePropertyIPTCCredit : @"kCGImagePropertyIPTCCredit",
+                           (NSString *)kCGImagePropertyIPTCSource : @"kCGImagePropertyIPTCSource",
+                           (NSString *)kCGImagePropertyIPTCCopyrightNotice : @"kCGImagePropertyIPTCCopyrightNotice",
+                           (NSString *)kCGImagePropertyIPTCContact : @"kCGImagePropertyIPTCContact",
+                           (NSString *)kCGImagePropertyIPTCCaptionAbstract : @"kCGImagePropertyIPTCCaptionAbstract",
+                           (NSString *)kCGImagePropertyIPTCWriterEditor : @"kCGImagePropertyIPTCWriterEditor",
+                           (NSString *)kCGImagePropertyIPTCImageType : @"kCGImagePropertyIPTCImageType",
+                           (NSString *)kCGImagePropertyIPTCImageOrientation : @"kCGImagePropertyIPTCImageOrientation",
+                           (NSString *)kCGImagePropertyIPTCLanguageIdentifier : @"kCGImagePropertyIPTCLanguageIdentifier",
+                           (NSString *)kCGImagePropertyIPTCStarRating : @"kCGImagePropertyIPTCStarRating",
+                           (NSString *)kCGImagePropertyIPTCCreatorContactInfo : @"kCGImagePropertyIPTCCreatorContactInfo",
+                           (NSString *)kCGImagePropertyIPTCRightsUsageTerms : @"kCGImagePropertyIPTCRightsUsageTerms",
+                           (NSString *)kCGImagePropertyIPTCScene : @"kCGImagePropertyIPTCScene",
+                           (NSString *)kCGImagePropertyIPTCContactInfoCity : @"kCGImagePropertyIPTCContactInfoCity",
+                           (NSString *)kCGImagePropertyIPTCContactInfoCountry : @"kCGImagePropertyIPTCContactInfoCountry",
+                           (NSString *)kCGImagePropertyIPTCContactInfoAddress : @"kCGImagePropertyIPTCContactInfoAddress",
+                           (NSString *)kCGImagePropertyIPTCContactInfoPostalCode : @"kCGImagePropertyIPTCContactInfoPostalCode",
+                           (NSString *)kCGImagePropertyIPTCContactInfoStateProvince : @"kCGImagePropertyIPTCContactInfoStateProvince",
+                           (NSString *)kCGImagePropertyIPTCContactInfoEmails : @"kCGImagePropertyIPTCContactInfoEmails",
+                           (NSString *)kCGImagePropertyIPTCContactInfoPhones : @"kCGImagePropertyIPTCContactInfoPhones",
+                           (NSString *)kCGImagePropertyIPTCContactInfoWebURLs : @"kCGImagePropertyIPTCContactInfoWebURLs" };
+    
+    
+    
+    [metadataAsMutable setObject:iptc forKey:(NSString *)kCGImagePropertyIPTCDictionary];
+
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
+                                                         NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    
+    NSString* path = [documentsDirectory stringByAppendingPathComponent:
+                      self.fileName];
+    
+    __block NSURL* tmpURL = [NSURL fileURLWithPath:path];
+    
+    CGImageDestinationRef destination = CGImageDestinationCreateWithURL((__bridge CFURLRef) tmpURL, kUTTypeJPEG, 1, NULL);
+    CGImageDestinationAddImageFromSource(destination, source, 0, (__bridge CFDictionaryRef) metadataAsMutable);
+    CGImageDestinationFinalize(destination);
+    CFRelease(source);
+    CFRelease(destination);
+    [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
+        [PHAssetChangeRequest creationRequestForAssetFromImageAtFileURL:tmpURL];
+    }   completionHandler:^(BOOL success, NSError *error) {
+        
+        //cleanup the tmp file after import, if needed
+    }];
+    
+//    [library writeImageToSavedPhotosAlbum:[image CGImage]
+//                            metadata:metadataAsMutable
+//                          completionBlock:nil];
+
+    
+    
+    
+    
+    
+//    [library assetForURL:resourceURL
+//                  resultBlock:^(ALAsset *asset) {
+//                      // get data
+//                      ALAssetRepresentation *assetRep = [asset defaultRepresentation];
+//                      CGImageRef cgImg = [assetRep fullResolutionImage];
+//                      NSString *filename = [assetRep filename];
+//                      NSLog(@"filename %@", filename);
+//
+//                      UIImage *img = [UIImage imageWithCGImage:cgImg];
+//                      NSData *data = UIImagePNGRepresentation(img);
+//                      NSString *cacheDir = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
+//                      NSURL *tempFileURL = [NSURL fileURLWithPath:[cacheDir stringByAppendingPathComponent:filename]];
+//                      BOOL result = [data writeToFile:tempFileURL.path atomically:YES];
+//                      if(result) {
+//                          // handle import
+////                          [self doSomethingWith:resourceURL];
+//                          // remove temp file
+//                          result = [[NSFileManager defaultManager] removeItemAtURL:tempFileURL error:nil];
+//                          if(!result) { NSLog(@"Error removing temp file %@", tempFileURL); }
+//                      }
+//                  }
+//                 failureBlock:^(NSError *error) {
+//                     NSLog(@"%@", error);
+//                 }];
+
+
+
+    
+    NSData* data = UIImageJPEGRepresentation(image, 1.0);
+    [data writeToFile:path atomically:YES];
     
     NSURL *ftpURL = [NSURL URLWithString:@"ftp://k.seryoga@ftp.drivehq.com"];
     self.ftpRequest = [[SCRFTPRequest alloc] initWithURL:ftpURL toUploadFile:path];

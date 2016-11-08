@@ -27,15 +27,15 @@
     [[UINavigationBar appearance] setTitleTextAttributes:attr];
     
     
-    UIWindow *window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    self.window = window;
+//    UIWindow *window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+//    self.window = window;
     
-    RootCoordinator *coordinator = [RootCoordinator new];
-    self.rootCoordinator = coordinator;
+//    RootCoordinator *coordinator = [RootCoordinator new];
+//    self.rootCoordinator = coordinator;
     
 //    window.rootViewController = coordinator.rootViewController;
     
-    [self.window makeKeyAndVisible];
+//    [self.window makeKeyAndVisible];
     
     // Override point for customization after application launch.
     return YES;

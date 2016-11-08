@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface RootCoordinator : NSObject
-@property (nonatomic, readonly) UIViewController    *rootViewController;
+//@property (nonatomic, readonly) UIViewController    *rootViewController;
 
 
 @end

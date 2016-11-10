@@ -19,7 +19,8 @@
 #import "SCRFTPRequest.h"
 #include <MobileCoreServices/UTCoreTypes.h>
 
-
+@import FirebaseAuth;
+@import Firebase;
 static NSString * const kMIRatingTitle                  = @"Great job! \n \u2B50\u2B50\u2B50\u2B50\u2B50";//@"Do you enjoy using our application?";
 static NSString * const kMIRatingMessage                = @"We think you're awesome!\n Would you mind taking a moment to leave your rating on iTunes ?";//@"Please take a minute to give us ratings/reviews so we can keep improving our application";
 
@@ -37,6 +38,9 @@ static NSString * const kMIRatingMessage                = @"We think you're awes
 @property (nonatomic,strong) UILabel *sliderValueLabel;
 @property (nonatomic, strong) SCRFTPRequest *ftpRequest;
 @property (nonatomic, strong) NSString *fileName;
+
+@property (strong, nonatomic) FIRStorageReference *storageRef;
+
 @end
 
 @implementation ViewController
@@ -56,6 +60,13 @@ static NSString * const kMIRatingMessage                = @"We think you're awes
     
     self.ftpRequest.delegate = self;
     
+    self.storageRef = [[FIRStorage storage] reference];
+
+    [[FIRAuth auth] signInWithEmail:@"kostiuk.serhii@gmail.com"
+                           password:@"seRg4702"
+                         completion:^(FIRUser *user, NSError *error) {
+                             // ...
+                         }];
 //    UIImage *image = [UIImage imageNamed:@"preplay_start.png"];
 //    UIImage *image = [UIImage imageNamed:@"1111"];
 
@@ -111,6 +122,10 @@ static NSString * const kMIRatingMessage                = @"We think you're awes
                                                   (id)[[UIColor colorWithRed:235.0/255.0 green:82.0/255.0 blue:86.0/255.0 alpha:1.0] CGColor],
                                                   (id)[[UIColor colorWithRed:235.0/255.0 green:76.0/255.0 blue:90.0/255.0 alpha:1.0] CGColor],
                                                   nil]];
+    
+    
+    
+   
 }
 
 
@@ -122,6 +137,8 @@ static NSString * const kMIRatingMessage                = @"We think you're awes
 - (IBAction)showGallery:(id)sender {
     self.imagePickerController.delegate = self;
     [self.imagePickerController setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
+    self.imagePickerController.mediaTypes =[UIImagePickerController availableMediaTypesForSourceType:self.imagePickerController.sourceType];
+
     [self.navigationController.navigationBar setHidden:NO];
     [self.navigationController presentViewController:self.imagePickerController animated:YES completion:nil];
 }
@@ -375,7 +392,7 @@ static NSString * const kMIRatingMessage                = @"We think you're awes
     //get image name
     PHFetchOptions *fetchOptions = [PHFetchOptions new];
     fetchOptions.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"creationDate" ascending:NO]];
-    PHFetchResult *fetchResult = [PHAsset fetchAssetsWithMediaType:PHAssetMediaTypeImage options:fetchOptions];
+    PHFetchResult *fetchResult = [PHAsset fetchAssetsWithMediaType:PHAssetMediaTypeUnknown options:fetchOptions];
 //    PHAsset *lastImageAsset = [fetchResult firstObject];
     PHAsset *asset = [PHAsset fetchAssetsWithALAssetURLs:@[referenceURL] options:nil].firstObject;
     
@@ -394,7 +411,37 @@ static NSString * const kMIRatingMessage                = @"We think you're awes
                          UIImageOrientation orientation,
                          NSDictionary *info)
          {
-             NSLog(@"info = %@", info);
+             if (contentEditingInput.mediaType == PHAssetMediaTypeVideo) {
+                 
+                 [[PHImageManager defaultManager] requestAVAssetForVideo:asset options:nil resultHandler:^(AVAsset *avAsset, AVAudioMix *audioMix, NSDictionary *info)
+                  {
+                      NSURL *url = (NSURL *)[[(AVURLAsset *)avAsset URL] fileReferenceURL];
+                      NSURL *videoFilePath = [NSURL fileURLWithPath:url.relativePath];
+                      
+                      NSLog(@"url = %@", [url absoluteString]);
+                      NSLog(@"url = %@", [url relativePath]);
+                      
+                      NSString *filePath =
+                      [NSString stringWithFormat:@"%@/%lld/%@",
+                       [FIRAuth auth].currentUser.uid,
+                       (long long)([[NSDate date] timeIntervalSince1970] * 1000.0),
+                       [videoFilePath lastPathComponent]];
+                      
+                      // [START uploadimage]
+                      
+                      [[_storageRef child:filePath]
+                       putFile:videoFilePath metadata:nil
+                       completion:^(FIRStorageMetadata *metadata, NSError *error) {
+                           if (error) {
+                               NSLog(@"Error uploading: %@", error);
+                               _urlTextView.text = @"Upload Failed";
+                               return;
+                           }
+                           
+                           [self uploadSuccess:metadata storagePath:filePath];
+
+             
+//             NSLog(@"info = %@", info);
              if ([info objectForKey:@"PHImageFileURLKey"]) {
                  // path looks like this -
                  // file:///var/mobile/Media/DCIM/###APPLE/IMG_####.JPG
@@ -403,12 +450,52 @@ static NSString * const kMIRatingMessage                = @"We think you're awes
 
                  
                  self.fileName = JPEGfilename;
+                 
+//                 // Get a reference to the storage service, using the default Firebase App
+//                 FIRStorage *storage = [FIRStorage storage];
+//                 
+//                 // Create a storage reference from our storage service
+//                 FIRStorageReference *storageRef = [storage referenceForURL:@"gs://testidap-8e683.appspot.com"];
+//                 
+//                 
+//                 // Create a reference to the file you want to upload
+//                 FIRStorageReference *riversRef = [storageRef child:@"images/rivers.jpg"];
+//                 
+//                 // Upload the file to the path "images/rivers.jpg"
+//                 FIRStorageUploadTask *uploadTask = [riversRef putFile:path];
+                 
+                 
+//                 [uploadTask resume];
+
              }
          }];
+        
+        [asset requestContentEditingInputWithOptions:nil completionHandler:^(PHContentEditingInput * _Nullable contentEditingInput, NSDictionary * _Nonnull info) {
+            NSURL *imageFile = contentEditingInput.fullSizeImageURL;
+            NSString *filePath =
+            [NSString stringWithFormat:@"%@/%@",
+             @"images",[imageFile lastPathComponent]];
+            
+            NSLog(@"%@",filePath);
+            
+            // [START uploadimage]
+            [[_storageRef child:filePath]
+             putFile:imageFile metadata:nil
+             completion:^(FIRStorageMetadata *metadata, NSError *error) {
+                 if (error) {
+                     NSLog(@"Error uploading: %@", error);
+//                     _urlTextView.text = @"Upload Failed";
+                     return;
+                 }
+//                 [self uploadSuccess:metadata storagePath:filePath];
+             }];
+            // [END uploadimage]
+            
+        }];
     }
     
     NSData *dataOfImageFromGallery = UIImageJPEGRepresentation (image,1.0);
-    NSLog(@"Image length:  %lu", (unsigned long)[dataOfImageFromGallery length]);
+//    NSLog(@"Image length:  %lu", (unsigned long)[dataOfImageFromGallery length]);
     
     CGImageSourceRef source = CGImageSourceCreateWithData((CFDataRef)dataOfImageFromGallery, NULL);
     
@@ -501,17 +588,17 @@ static NSString * const kMIRatingMessage                = @"We think you're awes
     
     __block NSURL* tmpURL = [NSURL fileURLWithPath:path];
     
-    CGImageDestinationRef destination = CGImageDestinationCreateWithURL((__bridge CFURLRef) tmpURL, kUTTypeJPEG, 1, NULL);
-    CGImageDestinationAddImageFromSource(destination, source, 0, (__bridge CFDictionaryRef) metadataAsMutable);
-    CGImageDestinationFinalize(destination);
-    CFRelease(source);
-    CFRelease(destination);
-    [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
-        [PHAssetChangeRequest creationRequestForAssetFromImageAtFileURL:tmpURL];
-    }   completionHandler:^(BOOL success, NSError *error) {
-        
-        //cleanup the tmp file after import, if needed
-    }];
+//    CGImageDestinationRef destination = CGImageDestinationCreateWithURL((__bridge CFURLRef) tmpURL, kUTTypeJPEG, 1, NULL);
+//    CGImageDestinationAddImageFromSource(destination, source, 0, (__bridge CFDictionaryRef) metadataAsMutable);
+//    CGImageDestinationFinalize(destination);
+//    CFRelease(source);
+//    CFRelease(destination);
+//    [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
+//        [PHAssetChangeRequest creationRequestForAssetFromImageAtFileURL:tmpURL];
+//    }   completionHandler:^(BOOL success, NSError *error) {
+//        
+//        //cleanup the tmp file after import, if needed
+//    }];
     
 //    [library writeImageToSavedPhotosAlbum:[image CGImage]
 //                            metadata:metadataAsMutable
@@ -560,7 +647,7 @@ static NSString * const kMIRatingMessage                = @"We think you're awes
    self.ftpRequest.username = @"k.seryoga";
    self.ftpRequest.password = @"seRg4702";
     
-    [self.ftpRequest startRequest];
+//    [self.ftpRequest startRequest];
     
     self.scrollView.contentMode = UIViewContentModeScaleAspectFill;
     self.scrollView.contentOffset = CGPointZero;

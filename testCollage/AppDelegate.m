@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import "RootCoordinator.h"
-
+@import Firebase;
 
 @interface AppDelegate ()
 @property (nonatomic, strong) RootCoordinator *rootCoordinator;
@@ -18,6 +18,9 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    [FIRApp configure];
+
     
     NSMutableDictionary *attr = [NSMutableDictionary new];
     attr[UITextAttributeTextColor] = [UIColor colorWithRed:255.0/255.0 green:255.0/255.0 blue:255.0/255.0 alpha:0.6];

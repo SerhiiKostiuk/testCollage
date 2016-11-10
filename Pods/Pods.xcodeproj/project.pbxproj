@@ -1,0 +1,663 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		08CEEF89244094F37CAA5DA982341D83 /* TUSResumableUpload.h in Headers */ = {isa = PBXBuildFile; fileRef = 953FF5536DD28EB84859BC62EAD7B777 /* TUSResumableUpload.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		08F6947A3BF9E2F0F4DB47F4AE93808B /* TUSKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E2467C1063DDF2735E49D39D623D5B9 /* TUSKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		20F0C946D73F888F303474AAF2BED787 /* TUSData.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D4F7E5DB55B133B56376D00070C3F78 /* TUSData.m */; };
+		2ED94C00B2B3CDDB4C0460DD688F3ACD /* TUSResumableUpload.m in Sources */ = {isa = PBXBuildFile; fileRef = AC1016E4AAF7A5A030BBE9A61E0A3088 /* TUSResumableUpload.m */; };
+		6FE8171592D210B9F60DA769F6630872 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
+		74BE175CDA84215347992863662FD077 /* TUSAssetData.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D8CF50BD0E8428EC2CAAC75B479D0BF /* TUSAssetData.m */; };
+		7ADC460A175E8EBC57DBCA36D5F3F23A /* TUSKit.xcconfig in Sources */ = {isa = PBXBuildFile; fileRef = E26725867F5E3CC16A257DE68538E618 /* TUSKit.xcconfig */; };
+		87556B03810985E9412F90AE3B061A6C /* TUSData.h in Headers */ = {isa = PBXBuildFile; fileRef = 88E0445F3D504EC3D5076CA5C3D56A8C /* TUSData.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A04A197F6AF15A2A1D847BC168020653 /* Pods-testCollage-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EAD08114B6C97C7CBD66B2286A2FC71 /* Pods-testCollage-dummy.m */; };
+		B7633E30858C1BA49EF4B8A0B1DB6237 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
+		BEB6A63BE79A3521C4AB56855442192B /* TUSKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C473EF80EBB8DA58704A210F63510C2 /* TUSKit-dummy.m */; };
+		EFC70215FCB8F34F6B45F49D4E3F1659 /* TUSAssetData.h in Headers */ = {isa = PBXBuildFile; fileRef = D03B70A873B81DA74051C907B84C664F /* TUSAssetData.h */; settings = {ATTRIBUTES = (Public, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		962796E6630CB443C47A08FAF67E2DA5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7C1744C536F4034B02475FBEA6394A62;
+			remoteInfo = TUSKit;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0D6DDDF7AB7FC1F0FEACA826AE651242 /* TUSKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "TUSKit-prefix.pch"; sourceTree = "<group>"; };
+		112D262292896F920B4C51C08FD52E14 /* FirebaseStorage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseStorage.framework; path = Frameworks/frameworks/FirebaseStorage.framework; sourceTree = "<group>"; };
+		1E5FDA9CEFAF26E079DDF3A9C83FCB6C /* GoogleUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleUtilities.framework; path = Frameworks/GoogleUtilities.framework; sourceTree = "<group>"; };
+		1EAD08114B6C97C7CBD66B2286A2FC71 /* Pods-testCollage-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-testCollage-dummy.m"; sourceTree = "<group>"; };
+		311F6D088B7C9DA1405C3094359BA0E0 /* Pods-testCollage.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-testCollage.release.xcconfig"; sourceTree = "<group>"; };
+		3D8CF50BD0E8428EC2CAAC75B479D0BF /* TUSAssetData.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TUSAssetData.m; path = Pod/Classes/TUSAssetData.m; sourceTree = "<group>"; };
+		525C96688F0D16DD78C02CC396A66F6C /* Pods-testCollage-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-testCollage-acknowledgements.plist"; sourceTree = "<group>"; };
+		651D7249ECCDC0EA5A68B8D578830B2A /* GoogleSymbolUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleSymbolUtilities.framework; path = Frameworks/GoogleSymbolUtilities.framework; sourceTree = "<group>"; };
+		6C473EF80EBB8DA58704A210F63510C2 /* TUSKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "TUSKit-dummy.m"; sourceTree = "<group>"; };
+		6F8689B0D42A87B39471F843755AD63E /* GoogleInterchangeUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleInterchangeUtilities.framework; path = Frameworks/GoogleInterchangeUtilities.framework; sourceTree = "<group>"; };
+		706C139F38056EB30D6EA23715C1FDAF /* FirebaseInstanceID.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseInstanceID.framework; path = Frameworks/frameworks/FirebaseInstanceID.framework; sourceTree = "<group>"; };
+		82C5B728AC6922C6256EBDBA002385DD /* FirebaseAuth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseAuth.framework; path = Frameworks/frameworks/FirebaseAuth.framework; sourceTree = "<group>"; };
+		8667C82552A56319B70E20C823B09BD4 /* libPods-testCollage.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-testCollage.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		86DDAB5077427CAC9C1ADF7C93979B92 /* Pods-testCollage.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-testCollage.debug.xcconfig"; sourceTree = "<group>"; };
+		88E0445F3D504EC3D5076CA5C3D56A8C /* TUSData.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TUSData.h; path = Pod/Classes/TUSData.h; sourceTree = "<group>"; };
+		89E1330FA718E8DA91E59FF31A3AF877 /* FIRInstanceID.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FIRInstanceID.h; path = Sources/FIRInstanceID.h; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		953FF5536DD28EB84859BC62EAD7B777 /* TUSResumableUpload.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TUSResumableUpload.h; path = Pod/Classes/TUSResumableUpload.h; sourceTree = "<group>"; };
+		98E8689E0E361B2695A8A973ACDB5300 /* Firebase.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Firebase.h; path = Analytics/Sources/Firebase.h; sourceTree = "<group>"; };
+		9D4F7E5DB55B133B56376D00070C3F78 /* TUSData.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TUSData.m; path = Pod/Classes/TUSData.m; sourceTree = "<group>"; };
+		9E2467C1063DDF2735E49D39D623D5B9 /* TUSKit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TUSKit.h; path = Pod/Classes/TUSKit.h; sourceTree = "<group>"; };
+		9F316FBC5B0691766C50609EB62342F9 /* Pods-testCollage-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-testCollage-acknowledgements.markdown"; sourceTree = "<group>"; };
+		AC1016E4AAF7A5A030BBE9A61E0A3088 /* TUSResumableUpload.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TUSResumableUpload.m; path = Pod/Classes/TUSResumableUpload.m; sourceTree = "<group>"; };
+		ADA13E1DE234CAE8EEB239EC009FF821 /* GoogleParsingUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleParsingUtilities.framework; path = Frameworks/GoogleParsingUtilities.framework; sourceTree = "<group>"; };
+		ADCDC7F4599A3F6F0DCB2227F54AF743 /* Pods-testCollage-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-testCollage-resources.sh"; sourceTree = "<group>"; };
+		BCE3936A26FF2C3241D9C343C6108F2C /* GoogleNetworkingUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleNetworkingUtilities.framework; path = Frameworks/GoogleNetworkingUtilities.framework; sourceTree = "<group>"; };
+		BF6F6BCFED2C1500C047EE0D31C13E73 /* libTUSKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libTUSKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		C75BD542FF6E20B0D97E4B2888888407 /* FirebaseAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseAnalytics.framework; path = Frameworks/frameworks/FirebaseAnalytics.framework; sourceTree = "<group>"; };
+		CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		D03B70A873B81DA74051C907B84C664F /* TUSAssetData.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TUSAssetData.h; path = Pod/Classes/TUSAssetData.h; sourceTree = "<group>"; };
+		D5DB3AAEF89D1A064DC9AF6063F3BC1C /* TUSKit.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = TUSKit.xcconfig; sourceTree = "<group>"; };
+		E26725867F5E3CC16A257DE68538E618 /* TUSKit.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = TUSKit.xcconfig; path = Pod/Classes/TUSKit.xcconfig; sourceTree = "<group>"; };
+		EBFC0B8C576569F7C6A7A5057BDACAE7 /* Pods-testCollage-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-testCollage-frameworks.sh"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2193653D50E70B350A1A9FA2126692E3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B7633E30858C1BA49EF4B8A0B1DB6237 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AEB8696C76BE52E1E0878B584910AD76 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6FE8171592D210B9F60DA769F6630872 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		038AC58CD5722FE6AA3FCC5939C72DEB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6F8689B0D42A87B39471F843755AD63E /* GoogleInterchangeUtilities.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		03969AE5FE8C0E658D6FEF3D4CD79DE5 /* TUSKit */ = {
+			isa = PBXGroup;
+			children = (
+				D03B70A873B81DA74051C907B84C664F /* TUSAssetData.h */,
+				3D8CF50BD0E8428EC2CAAC75B479D0BF /* TUSAssetData.m */,
+				88E0445F3D504EC3D5076CA5C3D56A8C /* TUSData.h */,
+				9D4F7E5DB55B133B56376D00070C3F78 /* TUSData.m */,
+				9E2467C1063DDF2735E49D39D623D5B9 /* TUSKit.h */,
+				E26725867F5E3CC16A257DE68538E618 /* TUSKit.xcconfig */,
+				953FF5536DD28EB84859BC62EAD7B777 /* TUSResumableUpload.h */,
+				AC1016E4AAF7A5A030BBE9A61E0A3088 /* TUSResumableUpload.m */,
+				DF1D45EB6586CBE5DE369D7D65EC6A72 /* Support Files */,
+			);
+			path = TUSKit;
+			sourceTree = "<group>";
+		};
+		16FFE29C398AB894C6C50010E51A38AF /* GoogleSymbolUtilities */ = {
+			isa = PBXGroup;
+			children = (
+				A657159DBE95BFB85B762C7B89C97FAD /* Frameworks */,
+			);
+			path = GoogleSymbolUtilities;
+			sourceTree = "<group>";
+		};
+		239333C6A5D71AF74DCDB3EA77329FA5 /* Analytics */ = {
+			isa = PBXGroup;
+			children = (
+				98E8689E0E361B2695A8A973ACDB5300 /* Firebase.h */,
+			);
+			name = Analytics;
+			sourceTree = "<group>";
+		};
+		3371DA0546D992CB68E87E023D4637B4 /* FirebaseAnalytics */ = {
+			isa = PBXGroup;
+			children = (
+				FBE10F76205F08D57ECA756FEFA4F6D3 /* Frameworks */,
+			);
+			path = FirebaseAnalytics;
+			sourceTree = "<group>";
+		};
+		3860CEA108101CB2C12C7BE59BB52954 /* FirebaseInstanceID */ = {
+			isa = PBXGroup;
+			children = (
+				89E1330FA718E8DA91E59FF31A3AF877 /* FIRInstanceID.h */,
+				C9299F95863441DEAFA721EB72159411 /* Frameworks */,
+			);
+			path = FirebaseInstanceID;
+			sourceTree = "<group>";
+		};
+		3B028D1FD0B17AE49118068513A42815 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				ADA13E1DE234CAE8EEB239EC009FF821 /* GoogleParsingUtilities.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3CB2F4959CE5DEBBF5182C09188EC10D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1E5FDA9CEFAF26E079DDF3A9C83FCB6C /* GoogleUtilities.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3DCAB2B7CDE207B3958B6CB957FCC758 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		3FE0146622904103C1AC4BA963C627C9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				82C5B728AC6922C6256EBDBA002385DD /* FirebaseAuth.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5C2568A72EB2A545742E7FF52A30CDDC /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				239333C6A5D71AF74DCDB3EA77329FA5 /* Analytics */,
+			);
+			path = Firebase;
+			sourceTree = "<group>";
+		};
+		69C2F46C384688AD1F1A1B1AEC946738 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				926816ED2E17EF1BF1178DD1473CCBBC /* Pods-testCollage */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		6DB3551EFDC46E693ADD6370B16FD459 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BCE3936A26FF2C3241D9C343C6108F2C /* GoogleNetworkingUtilities.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6FBD0C8A1401A81D806DB5D74D3842E0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8667C82552A56319B70E20C823B09BD4 /* libPods-testCollage.a */,
+				BF6F6BCFED2C1500C047EE0D31C13E73 /* libTUSKit.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7AE3C67BC65A064034A3B636BE3AC9D0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5C2568A72EB2A545742E7FF52A30CDDC /* Firebase */,
+				3371DA0546D992CB68E87E023D4637B4 /* FirebaseAnalytics */,
+				7B577E3E6BC13A1B40C930010F39F9D8 /* FirebaseAuth */,
+				3860CEA108101CB2C12C7BE59BB52954 /* FirebaseInstanceID */,
+				B6EC0C2835ED39E31E22256B540F44FA /* FirebaseStorage */,
+				A6C798B4C43F93F2CE0E728D53D280E6 /* GoogleInterchangeUtilities */,
+				BD65A036B360EBFD69FA72C402CDE750 /* GoogleNetworkingUtilities */,
+				CE066284688987A7C1861FECAFD2A736 /* GoogleParsingUtilities */,
+				16FFE29C398AB894C6C50010E51A38AF /* GoogleSymbolUtilities */,
+				CF2CFF155FB80838C09CE3D8A85C93BB /* GoogleUtilities */,
+				03969AE5FE8C0E658D6FEF3D4CD79DE5 /* TUSKit */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		7B577E3E6BC13A1B40C930010F39F9D8 /* FirebaseAuth */ = {
+			isa = PBXGroup;
+			children = (
+				3FE0146622904103C1AC4BA963C627C9 /* Frameworks */,
+			);
+			path = FirebaseAuth;
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
+				7AE3C67BC65A064034A3B636BE3AC9D0 /* Pods */,
+				6FBD0C8A1401A81D806DB5D74D3842E0 /* Products */,
+				69C2F46C384688AD1F1A1B1AEC946738 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		926816ED2E17EF1BF1178DD1473CCBBC /* Pods-testCollage */ = {
+			isa = PBXGroup;
+			children = (
+				9F316FBC5B0691766C50609EB62342F9 /* Pods-testCollage-acknowledgements.markdown */,
+				525C96688F0D16DD78C02CC396A66F6C /* Pods-testCollage-acknowledgements.plist */,
+				1EAD08114B6C97C7CBD66B2286A2FC71 /* Pods-testCollage-dummy.m */,
+				EBFC0B8C576569F7C6A7A5057BDACAE7 /* Pods-testCollage-frameworks.sh */,
+				ADCDC7F4599A3F6F0DCB2227F54AF743 /* Pods-testCollage-resources.sh */,
+				86DDAB5077427CAC9C1ADF7C93979B92 /* Pods-testCollage.debug.xcconfig */,
+				311F6D088B7C9DA1405C3094359BA0E0 /* Pods-testCollage.release.xcconfig */,
+			);
+			name = "Pods-testCollage";
+			path = "Target Support Files/Pods-testCollage";
+			sourceTree = "<group>";
+		};
+		A657159DBE95BFB85B762C7B89C97FAD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				651D7249ECCDC0EA5A68B8D578830B2A /* GoogleSymbolUtilities.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A6C798B4C43F93F2CE0E728D53D280E6 /* GoogleInterchangeUtilities */ = {
+			isa = PBXGroup;
+			children = (
+				038AC58CD5722FE6AA3FCC5939C72DEB /* Frameworks */,
+			);
+			path = GoogleInterchangeUtilities;
+			sourceTree = "<group>";
+		};
+		B6EC0C2835ED39E31E22256B540F44FA /* FirebaseStorage */ = {
+			isa = PBXGroup;
+			children = (
+				E7BBBA9DFC4284BE828B13EDB5F1EC80 /* Frameworks */,
+			);
+			path = FirebaseStorage;
+			sourceTree = "<group>";
+		};
+		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3DCAB2B7CDE207B3958B6CB957FCC758 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BD65A036B360EBFD69FA72C402CDE750 /* GoogleNetworkingUtilities */ = {
+			isa = PBXGroup;
+			children = (
+				6DB3551EFDC46E693ADD6370B16FD459 /* Frameworks */,
+			);
+			path = GoogleNetworkingUtilities;
+			sourceTree = "<group>";
+		};
+		C9299F95863441DEAFA721EB72159411 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				706C139F38056EB30D6EA23715C1FDAF /* FirebaseInstanceID.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CE066284688987A7C1861FECAFD2A736 /* GoogleParsingUtilities */ = {
+			isa = PBXGroup;
+			children = (
+				3B028D1FD0B17AE49118068513A42815 /* Frameworks */,
+			);
+			path = GoogleParsingUtilities;
+			sourceTree = "<group>";
+		};
+		CF2CFF155FB80838C09CE3D8A85C93BB /* GoogleUtilities */ = {
+			isa = PBXGroup;
+			children = (
+				3CB2F4959CE5DEBBF5182C09188EC10D /* Frameworks */,
+			);
+			path = GoogleUtilities;
+			sourceTree = "<group>";
+		};
+		DF1D45EB6586CBE5DE369D7D65EC6A72 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				D5DB3AAEF89D1A064DC9AF6063F3BC1C /* TUSKit.xcconfig */,
+				6C473EF80EBB8DA58704A210F63510C2 /* TUSKit-dummy.m */,
+				0D6DDDF7AB7FC1F0FEACA826AE651242 /* TUSKit-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/TUSKit";
+			sourceTree = "<group>";
+		};
+		E7BBBA9DFC4284BE828B13EDB5F1EC80 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				112D262292896F920B4C51C08FD52E14 /* FirebaseStorage.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FBE10F76205F08D57ECA756FEFA4F6D3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C75BD542FF6E20B0D97E4B2888888407 /* FirebaseAnalytics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		29D9879DF98CD8B9E5B1A29F28E5EEE4 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EFC70215FCB8F34F6B45F49D4E3F1659 /* TUSAssetData.h in Headers */,
+				87556B03810985E9412F90AE3B061A6C /* TUSData.h in Headers */,
+				08F6947A3BF9E2F0F4DB47F4AE93808B /* TUSKit.h in Headers */,
+				08CEEF89244094F37CAA5DA982341D83 /* TUSResumableUpload.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		7C1744C536F4034B02475FBEA6394A62 /* TUSKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F08A73482FA814E07319D32BE85602BA /* Build configuration list for PBXNativeTarget "TUSKit" */;
+			buildPhases = (
+				6CEB443E1D0778688C0D26C35ACBDF10 /* Sources */,
+				2193653D50E70B350A1A9FA2126692E3 /* Frameworks */,
+				29D9879DF98CD8B9E5B1A29F28E5EEE4 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TUSKit;
+			productName = TUSKit;
+			productReference = BF6F6BCFED2C1500C047EE0D31C13E73 /* libTUSKit.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		FB8463AE1DB8CF91BBEB8D89F361E219 /* Pods-testCollage */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BCC9430D0C8AEA76C05C69A5F48765BB /* Build configuration list for PBXNativeTarget "Pods-testCollage" */;
+			buildPhases = (
+				5F352F58289E034DD37819E95592E67B /* Sources */,
+				AEB8696C76BE52E1E0878B584910AD76 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DFFDF389089CA9F35E9C08FB4C3AE36F /* PBXTargetDependency */,
+			);
+			name = "Pods-testCollage";
+			productName = "Pods-testCollage";
+			productReference = 8667C82552A56319B70E20C823B09BD4 /* libPods-testCollage.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = 6FBD0C8A1401A81D806DB5D74D3842E0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FB8463AE1DB8CF91BBEB8D89F361E219 /* Pods-testCollage */,
+				7C1744C536F4034B02475FBEA6394A62 /* TUSKit */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5F352F58289E034DD37819E95592E67B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A04A197F6AF15A2A1D847BC168020653 /* Pods-testCollage-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6CEB443E1D0778688C0D26C35ACBDF10 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				74BE175CDA84215347992863662FD077 /* TUSAssetData.m in Sources */,
+				20F0C946D73F888F303474AAF2BED787 /* TUSData.m in Sources */,
+				BEB6A63BE79A3521C4AB56855442192B /* TUSKit-dummy.m in Sources */,
+				7ADC460A175E8EBC57DBCA36D5F3F23A /* TUSKit.xcconfig in Sources */,
+				2ED94C00B2B3CDDB4C0460DD688F3ACD /* TUSResumableUpload.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DFFDF389089CA9F35E9C08FB4C3AE36F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = TUSKit;
+			target = 7C1744C536F4034B02475FBEA6394A62 /* TUSKit */;
+			targetProxy = 962796E6630CB443C47A08FAF67E2DA5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		0ACDCBCB0B6796575F46FFA2F5410C6B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1802ABE9E34E3F450518D6045B867DD5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 86DDAB5077427CAC9C1ADF7C93979B92 /* Pods-testCollage.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		5A4A68546A83CBE1F432E6C2B38534EC /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D5DB3AAEF89D1A064DC9AF6063F3BC1C /* TUSKit.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/TUSKit/TUSKit-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		9B909E0256984FF29EC523A02DCBE1D6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 311F6D088B7C9DA1405C3094359BA0E0 /* Pods-testCollage.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		CC26B7663868AA034FE07D0AA02444F0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D5DB3AAEF89D1A064DC9AF6063F3BC1C /* TUSKit.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/TUSKit/TUSKit-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		D3E3D092A3FF7311A98E44BBA36FFD12 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				ONLY_ACTIVE_ARCH = YES;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D3E3D092A3FF7311A98E44BBA36FFD12 /* Debug */,
+				0ACDCBCB0B6796575F46FFA2F5410C6B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BCC9430D0C8AEA76C05C69A5F48765BB /* Build configuration list for PBXNativeTarget "Pods-testCollage" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1802ABE9E34E3F450518D6045B867DD5 /* Debug */,
+				9B909E0256984FF29EC523A02DCBE1D6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F08A73482FA814E07319D32BE85602BA /* Build configuration list for PBXNativeTarget "TUSKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CC26B7663868AA034FE07D0AA02444F0 /* Debug */,
+				5A4A68546A83CBE1F432E6C2B38534EC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}
